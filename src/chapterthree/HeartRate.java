@@ -7,8 +7,6 @@ public class HeartRate {
     private int monthOfBirth;
     private int yearOfBirth;
     private int dayOfBirth;
-    private double targetMaximumRange1;
-    private double targetMaximumRange2;
 
     public HeartRate(String firstName, String lastName, int monthOfBirth, int yearOfBirth, int dayOfBirth) {
         this.firstName = firstName;
@@ -69,32 +67,26 @@ public class HeartRate {
         return maximumHeart;
     }
 
-    public int getMaximumHeartRate() {
-        return (int) maximumHeartRate();
-    }
-
-    public void TargetMaximumRate(int excercise) {
+    public double TargetMaximumRate(int excercise) {
+        double targetMaximumRange1 = 0;
         if (excercise == 50) {
-            this.targetMaximumRange1 = maximumHeartRate() * 0.50;
+            targetMaximumRange1 = maximumHeartRate() * 0.50;
         }
         if (excercise == 70) {
-            this.targetMaximumRange1 = maximumHeartRate() * 0.70;
+            targetMaximumRange1 = maximumHeartRate() * 0.70;
         }
-    }
-    public double getTargetMaximumRange1(){
         return targetMaximumRange1;
     }
 
-    public void TargetMaximumRate2(int excercise2) {
+    public double TargetMaximumRate2(int excercise2) {
+        double targetMaximumRange2 = 0;
         if (excercise2 == 70) {
-            this.targetMaximumRange2 = maximumHeartRate() * 0.70;
+            targetMaximumRange2 = maximumHeartRate() * 0.70;
         }
         if (excercise2 == 85) {
-            this.targetMaximumRange2 = maximumHeartRate() * 0.85;
+            targetMaximumRange2 = maximumHeartRate() * 0.85;
         }
+       String convert = String.format("%.2f", targetMaximumRange2);
+        return Double.parseDouble(convert);
     }
-    public double getTargetMaximumRange2(){
-        return targetMaximumRange2;
-    }
-
 }

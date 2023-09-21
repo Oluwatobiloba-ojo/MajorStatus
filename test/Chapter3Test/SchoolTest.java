@@ -1,7 +1,7 @@
 package Chapter3Test;
 
-import org.junit.jupiter.api.Test;
 import chapterthree.School;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 

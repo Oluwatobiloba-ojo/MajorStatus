@@ -1,6 +1,6 @@
 package Chapter3Test;
 
-import chapter_3.TargetHeart;
+import chapterthree.HeartRate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -8,10 +8,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class TargetHeartTest {
-    TargetHeart myHeart;
+    HeartRate myHeart;
     @BeforeEach
     public void setMyHeart(){
-        myHeart = new TargetHeart();
+        myHeart = new HeartRate("Jenny", "Musa", 04,
+                2004, 31);
     }
     @Test
     public void testThatTargetHeartCanStoreName(){
@@ -19,8 +20,8 @@ public class TargetHeartTest {
         assertNotNull(myHeart);
 
         // When
-        myHeart.setName("Tobiah");
-        String name = myHeart.getName();
+        myHeart.setFirstName("Tobiah");
+        String name = myHeart.getFirstName();
         myHeart.setLastName("Ojo");
         String theName = myHeart.getLastName();
 
@@ -34,15 +35,15 @@ public class TargetHeartTest {
         assertNotNull(myHeart);
 
         //When
-        myHeart.setMonthOfBirth("March");
-        String month = myHeart.getMonthOfBirth();
+        myHeart.setMonthOfBirth(12);
+        int month = myHeart.getMonthOfBirth();
         myHeart.setDayOfBirth(23);
         int theDay = myHeart.getDayOfBirth();
         myHeart.setYearOfBirth(2004);
         int theYear = myHeart.getYearOfBirth();
 
         // Check
-        assertEquals("March",month);
+        assertEquals(12,month);
         assertEquals(23,theDay);
         assertEquals(2004,theYear);
     }
@@ -52,12 +53,12 @@ public class TargetHeartTest {
         assertNotNull(myHeart);
         myHeart.setDayOfBirth(31);
         assertEquals(31,myHeart.getDayOfBirth());
-        myHeart.setMonthOfBirth("April");
-        assertEquals("April",myHeart.getMonthOfBirth());
+        myHeart.setMonthOfBirth(04);
+        assertEquals(04,myHeart.getMonthOfBirth());
         myHeart.setYearOfBirth(2001);
         assertEquals(2001,myHeart.getYearOfBirth());
         //When
-        int age = myHeart.displayAge();
+        int age = myHeart.calculateAge();
         assertEquals(22,age);
     }
     @Test
@@ -66,14 +67,14 @@ public class TargetHeartTest {
         assertNotNull(myHeart);
         myHeart.setDayOfBirth(31);
         assertEquals(31,myHeart.getDayOfBirth());
-        myHeart.setMonthOfBirth("April");
-        assertEquals("April",myHeart.getMonthOfBirth());
+        myHeart.setMonthOfBirth(04);
+        assertEquals(04,myHeart.getMonthOfBirth());
         myHeart.setYearOfBirth(2001);
         assertEquals(2001,myHeart.getYearOfBirth());
-        int age = myHeart.displayAge();
+        int age = myHeart.calculateAge();
         assertEquals(22,age);
         // When
-       int maximum = myHeart.displayMaximumHeartRate(age);
+       double maximum = myHeart.maximumHeartRate();
        //Check
         assertEquals(198,maximum);
     }
@@ -83,19 +84,19 @@ public class TargetHeartTest {
         assertNotNull(myHeart);
         myHeart.setYearOfBirth(2001);
         assertEquals(2001,myHeart.getYearOfBirth());
-        myHeart.setMonthOfBirth("March");
-        assertEquals("March",myHeart.getMonthOfBirth());
+        myHeart.setMonthOfBirth(03);
+        assertEquals(03,myHeart.getMonthOfBirth());
         myHeart.setDayOfBirth(31);
         assertEquals(31,myHeart.getDayOfBirth());
-        int age = myHeart.displayAge();
+        int age = myHeart.calculateAge();
         assertEquals(22,age);
-        int maximum = myHeart.displayMaximumHeartRate(age);
+        double maximum = myHeart.maximumHeartRate();
         assertEquals(198,maximum);
         // When
-        double target1 = myHeart.displayTargetHeartRateRange1(50);
-        double target2 =  myHeart.displayTargetHeartRateRange2(85);
+        double target1 = myHeart.TargetMaximumRate(50);
+        double target2 =  myHeart.TargetMaximumRate2(85);
         //Check
         assertEquals(99.00,target1);
-        assertEquals(168.0,target2);
+        assertEquals(168.3,target2);
     }
 }

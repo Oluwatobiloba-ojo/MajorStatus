@@ -1,7 +1,5 @@
 package chapterthree;
 
-import chapterthree.HeartRate;
-
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -35,7 +33,7 @@ public class HeartRateSample {
         System.out.printf("\nYour age from the calculation is %d",age);
 
         myHeart.maximumHeartRate();
-        System.out.printf("\nMaximum heart rate is %d",myHeart.getMaximumHeartRate());
+        System.out.printf("\nMaximum heart rate is %f",myHeart.maximumHeartRate());
 
         System.out.print("\nYou will have to write a percentage of your heart rate in which " +
                 "\nthe range is from " + "50% to 85% but for this app our moderate heartrate is 50% and 70 " +
@@ -43,14 +41,12 @@ public class HeartRateSample {
 
         System.out.print("\nEnter the first range percentage your target heart rate: ");
         int thePer = input.nextInt();
-        myHeart.TargetMaximumRate(thePer);
 
         System.out.print("\nEnter the second range percentage of your target heart rate: ");
         int theExcercise1 = input.nextInt();
-        myHeart.TargetMaximumRate2(theExcercise1);
 
         System.out.printf("Their target rate range during the workout is %.2fBpm - %.2fBpm",
-                myHeart.getTargetMaximumRange1(),myHeart.getTargetMaximumRange2());
+                myHeart.TargetMaximumRate(theExcercise1),myHeart.TargetMaximumRate2(thePer));
 
 
     }
